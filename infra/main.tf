@@ -65,14 +65,14 @@ module "alb" {
 
 module "hosted_zone" {
   source          = "./hosted-zone"
-  domain_name     = var.domain_name
+  domain_name     = "new1.arson261.shop"
   aws_lb_dns_name = module.alb.aws_lb_dns_name
   aws_lb_zone_id  = module.alb.aws_lb_zone_id
 }
 
 module "aws_ceritification_manager" {
   source         = "./certificate-manager"
-  domain_name    = var.domain_name
+  domain_name    = "arson261.shop"
   hosted_zone_id = module.hosted_zone.hosted_zone_id
 }
 
